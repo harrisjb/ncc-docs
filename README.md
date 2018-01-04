@@ -10,6 +10,31 @@
 
 <p align="center"><em>The example above was created with Slate. Check it out at <a href="https://lord.github.io/slate">lord.github.io/slate</a>.</em></p>
 
+
+Notes on NCC Docs Deployment
+
+------------
+
+Build the static site using middleman
+
+```
+bundle exec middleman build --clean
+```
+
+Sync to s3. Note you MUST have AWS CLI tool configured first, and host
+from an s3 bucket you have access to, either your personal bucket or one
+NCC provides
+
+```
+aws s3 sync build s3://ncc-docs --acl public-read --cache-control "public, max-age=86400"
+```
+
+
+Instructions on this site: https://blog.codeship.com/middleman-s3-deploy/
+
+
+
+
 Features
 ------------
 
