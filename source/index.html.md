@@ -1,239 +1,97 @@
 ---
-title: API Reference
-
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+title: NCC Secure Transcribe Reference
 
 includes:
   - errors
 
-search: true
+search: false
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the NCC Secure Transcribe app! You can use this app to
+securely unzip, transcribe, and rezip your projects for NCC.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# Download PKWARE PKZIP
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Before you begin, download PKWARE PKZIP command line utility [for Windows](https://s3.amazonaws.com/ncc-secure-zip/szc144028w64en.exe) or [for Mac]()
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must install PKWARE and configure the software with a license key BEFORE attempting to use <code>NCC Secure Transcribe</code> app. Contact NCC for a license key for PKWARE PKZIP
 </aside>
 
-# Kittens
 
-## Get All Kittens
+# Download Files from NCC Server
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+You must also download the files prepared for you from the [NCC
+FTP Server](https://files.nccsite.com/WebInterface/login.html)
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+# Download NCC Secure Transcribe App
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
+Download the [Windows app from NCC](https://s3.amazonaws.com/ncc-secure-zip/NCC-SECUREZIP+Setup+1.6.0.exe) or the [Mac app from NCC](https://s3.amazonaws.com/ncc-secure-zip/NCC-SECUREZIP-1.3.0.dmg). The current version of the software is 1.8.0
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
-> The above command returns JSON structured like this:
+# Demo Video
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
 
-This endpoint retrieves all kittens.
+Watch the following video for end to end demonstration of the app on
+Windows.
 
-### HTTP Request
 
-`GET http://example.com/api/kittens`
+[![Demo Video](https://s3.amazonaws.com/ncc-secure-zip/ncc-screencap.png)](https://www.youtube.com/watch?v=AkyCN1auJc0&feature=youtu.be "NCC Secure Transcribe App Demo Video")
 
-### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+# Troubleshooting
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
 
-## Get a Specific Kitten
+## Internet is not disabled
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+If you are still connected to the internet after the first step, answer the following questions:
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+- Did you grant permission to the app when prompted?
+- What type of connection are you using to the internet? To determine
+  how you're connected on Windows 10, see the screenshots below. It's
+possible the app is not disabling the type of connection you're using
+and will need to be updated to accomodate your situation.
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
+## Empty folder after unzip
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
 
-> The above command returns JSON structured like this:
+If you have an empty folder after unzipping your file, answer the
+following questions:
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
 
-This endpoint retrieves a specific kitten.
+- Did you install PKWARE PKZIP prior to running the NCC App?
+- Did you enter a license key for PKWARE prior to running the NCC App?
+- What directory are you attempting to unzip to? 
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+ 
+## When I zip my file, nothing happens
 
-### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
 
-### URL Parameters
+- Did you install PKWARE PKZIP prior to running the NCC App?
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
 
-## Delete a Specific Kitten
+Expected behavior: 
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+Common Issues:
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+- Did you enter a licence key for PKWARE prior to running the NCC App?
+- What happened when you zipped the file?
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
+## Internet Still Disabled
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
 
-> The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
